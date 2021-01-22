@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Baby Needs</string>
+    <string name="drop_table">\"DROP TABLE IF EXIST \"</string>
+    <string name="add_item_button">add item button</string>
+    <string name="add_item">add Item</string>
+    <string name="enter_item_name">enter item name</string>
+    <string name="enter_item_quantity">enter item quantity</string>
+    <string name="enter_item_color">enter item color</string>
+    <string name="enter_item_size">enter item size</string>
+    <string name="add">ADD</string>
+    <string name="delete">delete</string>
+    <string name="update">update</string>
+</resources>
