@@ -9,7 +9,7 @@
         android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/btn_background"
+        android:background="@color/row_background"
         android:orientation="vertical">
 
         <TextView

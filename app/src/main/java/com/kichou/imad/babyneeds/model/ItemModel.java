@@ -7,6 +7,7 @@ public class ItemModel {
     private int itemQte;
     private String itemColor;
     private int itemSize;
+    private String createdDate;
 
 
     public ItemModel()
@@ -14,12 +15,13 @@ public class ItemModel {
 
     }
 
-    public ItemModel( String itemName, int itemQte, String itemColor, int itemSize) {
+    public ItemModel( String itemName, int itemQte, String itemColor, int itemSize , String date) {
 
         this.itemName = itemName;
         this.itemQte = itemQte;
         this.itemColor = itemColor;
         this.itemSize = itemSize;
+        this.createdDate = date;
     }
 
     public String getItemName() {
@@ -61,5 +63,13 @@ public class ItemModel {
 
     public void setItemId(int itemId) {
         this.itemId = itemId;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
     }
 }

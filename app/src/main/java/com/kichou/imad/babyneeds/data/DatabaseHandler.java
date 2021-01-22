@@ -31,7 +31,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + Util.ITEM_NAME + " VARCHAR(255) , "
                 + Util.ITEM_QTE + " INTEGER , "
                 + Util.ITEM_COLOR + " VARCHAR(255) , "
-                + Util.ITEM_SIZE + " INTEGER )";
+                + Util.ITEM_SIZE + " INTEGER ,"
+                + Util.CREATED_DATE + " VARCHAR(255) )";
 
         db.execSQL(CREATE_TABLE_QUERY);
 
@@ -60,6 +61,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Util.ITEM_QTE ,item.getItemQte());
         values.put(Util.ITEM_COLOR , item.getItemColor());
         values.put(Util.ITEM_SIZE, item.getItemSize());
+        values.put(Util.CREATED_DATE, item.getCreatedDate());
 
         db.insert(Util.TABLE_NAME,null,values);
         db.close();
@@ -75,7 +77,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         ItemModel item ;
 
         Cursor cursor = db.query(Util.TABLE_NAME,
-                new String[]{Util.ITEM_ID,Util.ITEM_NAME,Util.ITEM_QTE,Util.ITEM_COLOR,Util.ITEM_SIZE},
+                new String[]{Util.ITEM_ID,Util.ITEM_NAME,Util.ITEM_QTE,Util.ITEM_COLOR,Util.ITEM_SIZE,Util.CREATED_DATE},
                 Util.ITEM_ID + "=?",new String[]{String.valueOf(itemId)},
                 null,null,null);
 
@@ -88,6 +90,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         item.setItemQte(Integer.parseInt(cursor.getString(2)));
         item.setItemColor(cursor.getString(3));
         item.setItemSize(Integer.parseInt(cursor.getString(4)));
+        item.setCreatedDate(cursor.getString(5));
 
         return item;
 
@@ -112,6 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 item.setItemQte(Integer.parseInt(cursor.getString(2)));
                 item.setItemColor(cursor.getString(3));
                 item.setItemSize(Integer.parseInt(cursor.getString(4)));
+                item.setCreatedDate(cursor.getString(5));
 
                 items.add(item);
             }while(cursor.moveToNext());
@@ -130,6 +134,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(Util.ITEM_QTE ,item.getItemQte());
         values.put(Util.ITEM_COLOR , item.getItemColor());
         values.put(Util.ITEM_SIZE, item.getItemSize());
+        values.put(Util.CREATED_DATE, item.getCreatedDate());
 
 
         return db.update(Util.TABLE_NAME,values,Util.ITEM_ID + "=?",

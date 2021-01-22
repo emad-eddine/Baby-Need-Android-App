@@ -20,34 +20,33 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
-public class Alert extends AppCompatDialogFragment {
+public class UpdateAlert  extends AppCompatDialogFragment {
 
     private EditText itemName;
     private EditText itemQte;
     private  EditText itemColor;
     private  EditText itemSize;
-    private Button submitAddBtn;
-
+    private Button submitUpdateBtn;
     private AlertDialogInputListener listener;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.item_input_popup,null);
+        View view = inflater.inflate(R.layout.update_item_popup,null);
 
-        builder.setView(view);
+        build.setView(view);
 
         itemName = view.findViewById(R.id.item_name_input);
         itemQte = view.findViewById(R.id.item_qte_field);
         itemColor = view.findViewById(R.id.item_color_input);
         itemSize = view.findViewById(R.id.item_size_field);
-        submitAddBtn = view.findViewById(R.id.add_item_btn);
+        submitUpdateBtn = view.findViewById(R.id.add_item_btn);
 
-        submitAddBtn.setOnClickListener(new View.OnClickListener() {
+        submitUpdateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String itemNameInput = itemName.getText().toString();
@@ -55,13 +54,18 @@ public class Alert extends AppCompatDialogFragment {
                 String itemColorInput = itemColor.getText().toString();
                 String itemSizeInput = itemSize.getText().toString();
                 String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ", Locale.getDefault()).format(new Date());
-                listener.applyInputsField(itemNameInput,itemQteInput,itemColorInput,itemSizeInput,date);
+                listener.updateInputsField(itemNameInput,itemQteInput,itemColorInput,itemSizeInput,date);
             }
         });
 
-        return builder.create();
+        return build.create();
+
 
     }
+
+
+
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -73,6 +77,4 @@ public class Alert extends AppCompatDialogFragment {
                     + "must implement AlertDialogInputListener");
         }
     }
-
-
 }

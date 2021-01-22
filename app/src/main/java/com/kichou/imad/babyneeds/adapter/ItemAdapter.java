@@ -1,6 +1,5 @@
 package com.kichou.imad.babyneeds.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,17 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.kichou.imad.babyneeds.MainActivity2;
 import com.kichou.imad.babyneeds.R;
 import com.kichou.imad.babyneeds.data.DatabaseHandler;
-import com.kichou.imad.babyneeds.listeners.AlertDialogInputListener;
 import com.kichou.imad.babyneeds.listeners.ChangeItemListener;
 import com.kichou.imad.babyneeds.model.ItemModel;
-import com.kichou.imad.babyneeds.util.Alert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +47,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
          holder.itemQte.setText(String.valueOf(item.getItemQte()));
          holder.itemColor.setText(item.getItemColor());
          holder.itemSize.setText(String.valueOf(item.getItemSize()));
-         holder.createDate.setText("hello wolrd");
+         holder.createDate.setText("created on " + item.getCreatedDate());
 
     }
 

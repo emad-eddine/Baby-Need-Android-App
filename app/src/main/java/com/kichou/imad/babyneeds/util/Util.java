@@ -13,6 +13,7 @@ public class Util {
     public static final String ITEM_QTE  = "item_qte";
     public static final String ITEM_COLOR = "item_color";
     public static final String ITEM_SIZE = "item_size";
+    public static final String CREATED_DATE = "created_date";
 
 
 
